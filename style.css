@@ -1,0 +1,21 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    background-color: black;
+}
+.grid {
+    display: grid;
+    width: 100%;
+    height: 70vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+} 
+.tictactoe{
+    width: 900px;
+    height: 300px;
+    background-color: white;
+    text-align: center;
+    font-size: 300px;
+}
