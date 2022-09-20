@@ -5,22 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer >
-
-    </script>
-    <title>opabato</title>
+    <title>Tic tac toe</title>
 </head>
 <body>
-    <div class="grid">
-        <div class="tictactoe1 tictactoe" data="1"></div>
-        <div class="tictactoe2 tictactoe" data="2"></div>
-        <div class="tictactoe3 tictactoe" data="3"></div>
-        <div class="tictactoe4 tictactoe" data="4"></div>
-        <div class="tictactoe5 tictactoe" data="5"></div>
-        <div class="tictactoe6 tictactoe" data="6"></div>
-        <div class="tictactoe7 tictactoe" data="7"></div>
-        <div class="tictactoe8 tictactoe" data="8"></div>
-        <div class="tictactoe9 tictactoe" data="9"></div>
+    <div class="welcome">
+        <h1>Welcome to Tic tac toe!</h1>
+        <div class="name">
+            <label for="name" class="player1">Player 1's name:</label>
+            <input type="text">
+        </div>
+        <div class="name">
+            <label for="name" class="player2">Player 2's name:</label>
+            <input type="text">
+        </div>
+        <button class="start">Start</button>
     </div>
+    <div class="grid">
+        <div class="tictactoe1 tictactoe" data-x="1" data-y="1"></div>
+        <div class="tictactoe2 tictactoe" data-x="1" data-y="2"></div>
+        <div class="tictactoe3 tictactoe" data-x="1" data-y="3"></div>
+        <div class="tictactoe4 tictactoe" data-x="2" data-y="1"></div>
+        <div class="tictactoe5 tictactoe" data-x="2" data-y="2"></div>
+        <div class="tictactoe6 tictactoe" data-x="2" data-y="3"></div>
+        <div class="tictactoe7 tictactoe" data-x="3" data-y="1"></div>
+        <div class="tictactoe8 tictactoe" data-x="3" data-y="2"></div>
+        <div class="tictactoe9 tictactoe" data-x="3" data-y="3"></div>
+    </div>
+    <div class="turn">
+        <h1></h1>
+    </div>
+    <div class="endEndScreen">
+        <h1>Congratulations</h1>
+        <button>Refresh</button>
+    </div>
+    <script src="app.js" defer ></script>
 </body>
 </html>
