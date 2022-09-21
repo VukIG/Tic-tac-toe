@@ -29,6 +29,14 @@
     text-align: center;
     color: black;
 }
+.tictactoe h1{
+    color: black;
+    background-color: white;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
 .welcome h1{
     transform: translateY(-100%);
 }
