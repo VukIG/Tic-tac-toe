@@ -119,9 +119,13 @@ fields.forEach(field => {
 
 start.addEventListener('click',()=>{
     if(player1.value.length>0 && player2.value.length>0){
-
+        welcome.style.display='none';
+        playground.style.display='grid'
     }
-
-    welcome.style.display='none';
-    playground.style.display='grid'
+    else{
+        let greska = document.createElement('div');
+        greska.innerHTML='Enter a name';
+        greska.classList.add('ovan')
+        welcome.appendChild(greska);
+    }
 });
