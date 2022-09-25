@@ -15,25 +15,24 @@ end.style.display='none'
 let gameBoard = {
     value : ['','','','','','','','',''],
     winConditions:[
-        [1,2,3],
-        [4,5,6],
-        [7,8,9],
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
 
+        [0,3,6],
         [1,4,7],
         [2,5,8],
-        [3,6,9],
 
-        [1,5,9],
-        [7,5,3],
+        [0,4,8],
+        [6,4,2],
 
     ],
     validate(){
+        console.log('jo lengta de nordiska summarem')
         for(let i=0;i<this.winConditions.length;i++){
-            let a=this.value[this.winConditions[i][0]];
-            let b=this.value[this.winConditions[i][1]];
-            let c=this.value[this.winConditions[i][2]];
-            if (a==b && a==c && a!='') {
-                pobeda(a);
+            if (this.value[this.winConditions[i][0]]!='' && this.value[this.winConditions[i][0]]==this.value[this.winConditions[i][1]] && this.value[this.winConditions[i][0]]==this.value[this.winConditions[i][2]]) {
+                console.log("pobeda");
+                pobeda(this.value[this.winConditions[i][0]]);  
             }
         }
     }
