@@ -13,51 +13,46 @@ let prazno=true;
 end.style.display='none'
 
 let gameBoard = {
-    value : [
-        ['' , '', ''],
-        ['' , '', ''], 
-        ['' , '', ''],
+    value : ['','','','','','','','',''],
+    winConditions:[
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+
+        [1,4,7],
+        [2,5,8],
+        [3,6,9],
+
+        [1,5,9],
+        [7,5,3],
+
     ],
     validate(){
-        
-        for (let i = 0; i < this.value.length-2; i++) {
-            let sta=i+2;
-            for (let j = 0; j < this.value.length-2; j++) {
-                if (this.value[i][j]!='') {
-                    let zasto=j+2;
-                    let znak=this.value[i][j];
-                    let spetsnaz=i-2;
-                    if(this.value[i][j]==this.value[i++][j] && this.value[i][j]==this.value[sta][j]){ 
-                        pobeda(znak);
-                    }
-                    else if(this.value[i][j]==this.value[i][j++] && this.value[i][j]==this.value[i][zasto]){
-                        pobeda(znak);
-                    }
-                    else if(this.value[0][0]==this.value[1][1] && this.value[0][0]==this.value[2][2]){
-                        pobeda(znak);
-                    }
-                    else if(this.value[0][2]==this.value[1][1] && this.value[0][2]==this.value[2][0]){
-                        pobeda(znak);
-                    }    
-                    else{
-                        console.log('nereseno');
-                    }
-                }
-                
+        for(let i=0;i<this.winConditions.length;i++){
+            let a=this.value[this.winConditions[i][0]];
+            let b=this.value[this.winConditions[i][1]];
+            let c=this.value[this.winConditions[i][2]];
+            if (a==b && a==c && a!='') {
+                pobeda(a);
             }
         }
     }
+    
 }
 
-const player = {
-    name:"",
-    score: "",
+function MiniMax(position,depth,maximizingPlayer) {
+    if (depth==0 || gameOver==true){
+        return 
+    }
 }
 
 function clear() {
     playground.style.display='grid';
     end.style.display='none';
     let ocisti=gameBoard.value;
+    ocisti.forEach(polje => {
+        polje.valueOf='';
+    });
 }
 
 function pobeda(znak) {
@@ -96,16 +91,15 @@ fields.forEach(field => {
         if (field.querySelector('h1').innerHTML=='') {
             let x=field.dataset.x;
             console.log(x);
-            let y=field.dataset.y;
             let matrix=gameBoard.value;
             xilio++;
             if ( xilio%2==0){
                 field.querySelector('h1').innerHTML='O';
-                matrix[x-1][y-1]='O';
+                matrix[x-1]='O';
             }
             else{
                 field.querySelector('h1').innerHTML='X';
-                matrix[x-1][y-1]='X';
+                matrix[x-1]='X';
             }
             gameBoard.validate();
             promeniIme();
@@ -118,7 +112,7 @@ fields.forEach(field => {
 
 
 start.addEventListener('click',()=>{
-    if(player1.value.length>0 && player2.value.length>0){
+    if(player1.value.length>2 && player2.value.length>2){
         welcome.style.display='none';
         playground.style.display='grid'
     }
